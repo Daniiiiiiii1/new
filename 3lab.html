@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Калькулятор</title>
+    <script>
+        function calculate() {
+            var number1 = parseFloat(document.getElementById('number1').value);
+            var number2 = parseFloat(document.getElementById('number2').value);
+            var operator = document.getElementById('operator').value;
+            var result;
+
+            switch (operator) {
+                case '+':
+                    result = number1 + number2;
+                    break;
+                case '-':
+                    result = number1 - number2;
+                    break;
+                case '*':
+                    result = number1 * number2;
+                    break;
+                case '/':
+                    result = number1 / number2;
+                    break;
+                case 'sin':
+                    result = Math.sin(number1);
+                    break;
+                case 'cos':
+                    result = Math.cos(number1);
+                    break;
+                case 'tan':
+                    result = Math.tan(number1);
+                    break;
+                case 'pow':
+                    result = Math.pow(number1, number2);
+                    break;
+                case 'percent':
+                    result = (number2 / 100) * number1;
+                    break;
+                default:
+                    result = 'Недопустимая операция';
+            }
+
+            document.getElementById('result').innerHTML = result;
+        }
+    </script>
+</head>
+<body>
+    <h1>Калькулятор</h1>
+    <label for="number1">Число 1:</label>
+    <input type="text" id="number1">
+
+    <label for="number2">Число 2:</label>
+    <input type="text" id="number2">
+
+    <label for="operator">Операция:</label>
+    <select id="operator">
+        <option value="+">Сложение</option>
+        <option value="-">Вычитание</option>
+        <option value="*">Умножение</option>
+        <option value="/">Деление</option>
+        <option value="sin">Синус</option>
+        <option value="cos">Косинус</option>
+        <option value="tan">Тангенс</option>
+        <option value="pow">Возведение в степень</option>
+        <option value="percent">Процент от числа</option>
+    </select>
+
+    <button onclick="calculate()">Вычислить</button>
+
+    <p id="result"></p>
+</body>
+</html>
